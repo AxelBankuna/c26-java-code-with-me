@@ -9,29 +9,26 @@ public class Kata {
         for (String i : bracesArray) {
             if (i.equals("(") || i.equals("{") || i.equals("[")) {
                 stack.push(i);
-            } else {
-                if (i.equals("]") && stack.peek().equals("[")) {
-                    stack.pop();
-                    continue;
-                }
-                if (i.equals(")") && stack.peek().equals("(")) {
-                    stack.pop();
-                    continue;
-                }
-                if (i.equals(")") && stack.peek().equals("(")) {
-                    stack.pop();
-                    continue;
-                } else {
-                    return false;
-                }
+            }
+            if (i.equals("]") && stack.peek().equals("[")) {
+                stack.pop();
+                continue;
+            }
+            if (i.equals(")") && stack.peek().equals("(")) {
+                stack.pop();
+                continue;
+            }
+            if (i.equals("}") && stack.peek().equals("{")) {
+                stack.pop();
             }
         }
-        System.out.println(stack);
+
+        System.out.println("left in the stack: " + stack);
         return (stack.empty());
     }
 
     public static void main(String[] args) {
-        System.out.println(validateBraces("[({})]"));
+        System.out.println(validateBraces("()"));
     }
 }
 
