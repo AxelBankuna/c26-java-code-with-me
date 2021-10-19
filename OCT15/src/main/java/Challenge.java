@@ -144,15 +144,19 @@ public class Challenge {
 
         String[] animals = input.split(",");
         ArrayList<String> animalsList = new ArrayList<>(Arrays.asList(animals));
+
+
         for (int i = 0; i < animalsList.size(); i++) {
             if(i != 0 ){
                 if(canEat(map.get(animalsList.get(i)),animalsList.get(i-1))){
                     output.add(animalsList.get(i)+" eats "+animalsList.remove(i-1));
+                    i = 0;
                 }
             }
-            if( i != animalsList.size() -1){
+            if( i != animalsList.size() - 1){
                 if(canEat(map.get(animalsList.get(i)),animalsList.get(i+1))){
                     output.add(animalsList.get(i)+" eats "+animalsList.remove(i+1));
+                    i = 0;
                 }
             }
 
